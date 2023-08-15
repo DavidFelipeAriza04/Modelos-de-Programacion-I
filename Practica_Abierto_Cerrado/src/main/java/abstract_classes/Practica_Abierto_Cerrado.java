@@ -10,8 +10,5 @@ package abstract_classes;
  * @author david_a
  */
 public class Practica_Abierto_Cerrado {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+    
 }
