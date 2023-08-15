@@ -9,6 +9,6 @@ package abstract_classes;
  *
  * @author david_a
  */
-public class Practica_Abierto_Cerrado {
-    
+public abstract class Practica_Abierto_Cerrado {
+    abstract void metodo();
 }
