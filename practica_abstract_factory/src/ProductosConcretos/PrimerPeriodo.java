@@ -6,9 +6,11 @@
 package ProductosConcretos;
 
 
-import Fabrica_abstracta.*;
-public class PrimerPeriodo implements ServicioNotas{
+import Producto_Abstracto.ServicioNotas;
+public class PrimerPeriodo implements ServicioNotas{ //Producto concreto
     
+    
+    //Metodos del producto  concreto
     @Override
     public void NotaQuiz(float nota){
        System.out.println("La nota del quiz del primer periodo es: "+nota);

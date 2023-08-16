@@ -6,7 +6,10 @@
 package Fabrica_abstracta;
 
 // factoria Abstracta, contiene el metodo de instanciacion
-public interface ServicioFactory {// factoria abstracta
+
+import Producto_Abstracto.ServicioNotas;
+
+public interface ServicioFactory {// Fabrica abstracta
     public ServicioNotas crearNota();//crearNota es el metodo de instanciacion
-    //devuelve el metodo ServicioNotas
+    //devuelve el metodo ServicioNotas, crea el producto abstracto
 }

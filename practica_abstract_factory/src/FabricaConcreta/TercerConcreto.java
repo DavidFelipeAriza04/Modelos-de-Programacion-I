@@ -6,11 +6,11 @@
 package FabricaConcreta;
 
 import Fabrica_abstracta.ServicioFactory;
-import Fabrica_abstracta.ServicioNotas;
+import Producto_Abstracto.ServicioNotas;
 import ProductosConcretos.TercerPeriodo;
-public class TercerConcreto implements ServicioFactory{
+public class TercerConcreto implements ServicioFactory{ //Fabrica concreta
     
-    @Override
+    @Override //Metodo para crear el producto concreto
     public ServicioNotas crearNota(){
       return new  TercerPeriodo();
     }

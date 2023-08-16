@@ -9,10 +9,13 @@ package ProductosConcretos;
  *
  * @author jorge malaver
  */
+import Producto_Abstracto.ServicioNotas;
 import Fabrica_abstracta.*;
-public class TercerPeriodo implements ServicioNotas {
+public class TercerPeriodo implements ServicioNotas { //Producto concreto
  
-        @Override
+    
+    //Metodos del prodcuto concreto
+    @Override
     public void NotaQuiz(float nota){
        System.out.println("La nota del quiz del tercer periodo es: "+nota);
     }
