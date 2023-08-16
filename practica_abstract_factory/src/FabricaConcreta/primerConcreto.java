@@ -14,11 +14,11 @@ package FabricaConcreta;
 
 import Fabrica_abstracta.ServicioFactory;
 import Fabrica_abstracta.ServicioNotas;
-import ProductosConcretos.PrimerPerido;
+import ProductosConcretos.PrimerPeriodo;
 public class primerConcreto implements ServicioFactory{
     
     @Override
     public ServicioNotas crearNota(){
-      return new PrimerPerido();  
+      return new PrimerPeriodo();  
     }
 }

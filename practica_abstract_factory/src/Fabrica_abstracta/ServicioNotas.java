@@ -10,7 +10,8 @@ package Fabrica_abstracta;
  * @author jorge malaver
  */
 public interface ServicioNotas { //producto Abstracto
- public void NotaQuiz();
-public void NotaTrabajo();
-public void NotaParcial();
+    
+public void NotaQuiz(float nota);
+public void NotaTrabajo(float nota);
+public void NotaParcial(float nota);
 }

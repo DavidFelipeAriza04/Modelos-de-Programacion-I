@@ -14,17 +14,38 @@ public class Practica_abstract_factory {
     private static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
        int op;
+       float nota1=0;
+       float nota2=0;
+       float nota3=0;
         do{
             op=menu();//pegunta por el periodo elegido
             switch(op){
                 case 1:
-                    Periodo(new primerConcreto());//llamado al metodo periodo
+                    System.out.println("Ingrese la nota del quiz: ");
+                    nota1 = Float.parseFloat(sc.nextLine());
+                    System.out.println("Ingrese la nota del trabajo: ");
+                    nota2 = Float.parseFloat(sc.nextLine());
+                    System.out.println("Ingrese la nota del parcial: ");
+                    nota3 = Float.parseFloat(sc.nextLine());
+                    Periodo(new primerConcreto(),nota1,nota2,nota3);//llamado al metodo periodo
                     break; //se le pasa una factoria concreta
                 case 2:
-                    Periodo(new SegundoConcreto());
+                    System.out.println("Ingrese la nota del quiz: ");
+                    nota1 = Float.parseFloat(sc.nextLine());
+                    System.out.println("Ingrese la nota del trabajo: ");
+                    nota2 = Float.parseFloat(sc.nextLine());
+                    System.out.println("Ingrese la nota del parcial: ");
+                    nota3 = Float.parseFloat(sc.nextLine());
+                    Periodo(new SegundoConcreto(),nota1,nota2,nota3);
                     break;
                 case 3:
-                    Periodo(new TercerConcreto());
+                    System.out.println("Ingrese la nota del quiz: ");
+                    nota1 = Float.parseFloat(sc.nextLine());
+                    System.out.println("Ingrese la nota del trabajo: ");
+                    nota2 = Float.parseFloat(sc.nextLine());
+                    System.out.println("Ingrese la nota del parcial: ");
+                    nota3 = Float.parseFloat(sc.nextLine());
+                    Periodo(new TercerConcreto(),nota1,nota2,nota3);
                     break;
                 case 4:
                     System.out.println("Cerrando Programa");
@@ -39,19 +60,19 @@ public class Practica_abstract_factory {
        
      }
     
-    public static void Periodo(ServicioFactory Notas){
-        ServicioNotas  servicio= Notas.crearNota();//Notas que es una referencia a la intefaz
-        servicio.NotaParcial();   //ejecuta la fabrica de producto concreto seleccionada1
-        servicio.NotaQuiz();
-        servicio.NotaTrabajo();
+    public static void Periodo(ServicioFactory Notas, float nota1, float nota2, float nota3){
+        ServicioNotas  servicio = Notas.crearNota();//Notas que es una referencia a la intefaz
+        servicio.NotaQuiz(nota1);
+        servicio.NotaTrabajo(nota2);
+        servicio.NotaParcial(nota3);   //ejecuta la fabrica de producto concreto seleccionada1
         
     }//fin metodov Periodo
     
     public static int  menu(){
         System.out.println(
                 "MENU DE OPCIONES\n"
-                + "1.   Solicitar Notas Primer Perido. \n"
-                + "2.   Solicitar Notas Segundo Perido. \n"
+                + "1.   Solicitar Notas Primer Periodo. \n"
+                + "2.   Solicitar Notas Segundo Periodo. \n"
                 + "3.   Solicitar Notas tercer periodo. \n"
                 + "4.   Cerrar programa. \n\n"
                 + "Seleccion opcion..."

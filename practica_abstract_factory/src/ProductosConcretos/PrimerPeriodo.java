@@ -5,24 +5,21 @@
  */
 package ProductosConcretos;
 
-/**
- *
- * @author jorge malaver
- */
+
 import Fabrica_abstracta.*;
-public class SegundoPeriodo implements ServicioNotas{
-   
-       @Override
+public class PrimerPeriodo implements ServicioNotas{
+    
+    @Override
     public void NotaQuiz(float nota){
-       System.out.println("La nota del quiz del segundo periodo es: "+nota);
+       System.out.println("La nota del quiz del primer periodo es: "+nota);
     }
     @Override
     public void NotaTrabajo(float nota){
-        System.out.println("La nota del trabajo del segundo periodo es: "+nota);
+        System.out.println("La nota del trabajo del primer periodo  es: "+nota);
     }
     
     @Override
     public void NotaParcial(float nota){
-        System.out.println("La nota del proyecto del segundo periodo es: "+nota);
+        System.out.println("La nota del parcial del primer periodo es: "+nota);
     }
 }
