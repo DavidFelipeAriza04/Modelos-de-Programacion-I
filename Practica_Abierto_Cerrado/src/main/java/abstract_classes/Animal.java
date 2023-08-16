@@ -9,6 +9,6 @@ package abstract_classes;
  *
  * @author david_a
  */
-public abstract class Practica_Abierto_Cerrado {
-    abstract void metodo();
+public abstract class Animal {
+    public abstract void Moverse();
 }

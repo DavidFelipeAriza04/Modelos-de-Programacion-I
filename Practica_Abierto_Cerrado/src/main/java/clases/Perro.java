@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package main;
-
+package clases;
+import abstract_classes.Animal;
 /**
  *
  * @author david
  */
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+public class Perro extends Animal{
+    
+    @Override
+    public void Moverse(){
+        System.out.println("Caminar");
     }
 }
