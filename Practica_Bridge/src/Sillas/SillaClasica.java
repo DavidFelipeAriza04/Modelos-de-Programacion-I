@@ -13,17 +13,16 @@ import InterfaceMaterial.Material;
  */
 public class SillaClasica extends Silla {
 
-    //ATRIBUTOS
-    private Material material;
-
-    
     //CONSTRUCTOR
     public SillaClasica(Material material) {
         this.material = material;
-        switch (this.material.getNombre()){
-            case "Madera" -> this.valor = 20000;
-            case "Piedra" -> this.valor = 25000;
-            case "Metal" -> this.valor = 30000;
+        switch (this.material.getNombre()) {
+            case "Madera" ->
+                this.valor = 20000;
+            case "Piedra" ->
+                this.valor = 25000;
+            case "Metal" ->
+                this.valor = 30000;
         }
     }
 
@@ -32,7 +31,7 @@ public class SillaClasica extends Silla {
     public void MostrarSilla() {
         System.out.println("\nEsta es una silla Clasica");
         this.material.MostrarMaterial();
-        System.out.println("Valor: "+this.valor+"\n");
+        System.out.println("Valor: " + this.valor + "\n");
     }
 
 }
