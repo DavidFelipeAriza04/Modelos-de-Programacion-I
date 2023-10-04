@@ -4,19 +4,19 @@
  */
 package Contexto;
 
-import FlyWeight.TipoSilla_FlyWeight;
+import FlyWeight.TipoPelota_FlyWeight;
 import java.awt.Graphics;
 
 /**
  *
  * @author david
  */
-public class Silla {
+public class Pelota_Contexto {
     private int x;
     private int y;
-    private TipoSilla_FlyWeight tipo;
+    private TipoPelota_FlyWeight tipo;
 
-    public Silla(int x, int y, TipoSilla_FlyWeight tipo) {
+    public Pelota_Contexto(int x, int y, TipoPelota_FlyWeight tipo) {
         this.x = x;
         this.y = y;
         this.tipo = tipo;

@@ -4,9 +4,9 @@
  */
 package PracticaFlyweight;
 
-import Contexto.Silla;
-import FlyWeight.TipoSilla_FlyWeight;
-import FlyWeight_Factory.Fabrica_SillaFlyWeight;
+import Contexto.Pelota_Contexto;
+import FlyWeight.TipoPelota_FlyWeight;
+import FlyWeight_Factory.Fabrica_PelotaFlyWeight;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import java.util.ArrayList;
  *
  * @author david
  */
-public class MostrarSillas extends javax.swing.JFrame {
+public class MostrarPelotas extends javax.swing.JFrame {
 
-    private Fabrica_SillaFlyWeight fabrica = new Fabrica_SillaFlyWeight();
-    private ArrayList<Silla> sillas = new ArrayList();
+    private ArrayList<Pelota_Contexto> pelotas = new ArrayList();
+
     /**
      * Creates new form PracticaFlyweight
      */
-    public MostrarSillas() {
+    public MostrarPelotas() {
         initComponents();
     }
 
@@ -50,16 +50,16 @@ public class MostrarSillas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void mostrarSilla(int x, int y, String name, Color color, String descripcion) {
-        TipoSilla_FlyWeight tipo_silla = Fabrica_SillaFlyWeight.getTipoSilla(name, color, descripcion);
-        Silla silla = new Silla(x, y, tipo_silla);
-        sillas.add(silla);
+    public void mostrarPelota(int x, int y, String name, Color color, String descripcion) {
+        TipoPelota_FlyWeight tipo_pelota = Fabrica_PelotaFlyWeight.getTipoPelota(name, color, descripcion);
+        Pelota_Contexto pelota = new Pelota_Contexto(x, y, tipo_pelota);
+        pelotas.add(pelota);
     }
-    
+
     @Override
-    public void paint(Graphics g){
-        for(Silla silla: sillas){
-            silla.draw(g);
+    public void paint(Graphics g) {
+        for (Pelota_Contexto pelota : pelotas) {
+            pelota.draw(g);
         }
     }
 

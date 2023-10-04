@@ -11,7 +11,7 @@ import java.awt.Graphics;
  *
  * @author david
  */
-public class TipoSilla_FlyWeight {//Contiene el estado compartido por varias sillas
+public class TipoPelota_FlyWeight {//Contiene el estado compartido por varias pelotas
 
     private String nombre;
     private Color color;
@@ -21,19 +21,20 @@ public class TipoSilla_FlyWeight {//Contiene el estado compartido por varias sil
         return nombre;
     }
 
-    public TipoSilla_FlyWeight(String nombre, Color color, String descripcion) {
+    public TipoPelota_FlyWeight(String nombre, Color color, String descripcion) {
         this.nombre = nombre;
         this.color = color;
         this.descripcion = descripcion;
     }
 
     public void draw(Graphics g, int x, int y) {
-        g.setColor(Color.black);
-        g.fillRect(x, y, 10, 20);
-        g.fillRect(x, y - 25, 10, 25);
-        g.fillRect(x, y, 25, 5);
-        g.fillRect(x+25, y, 10, 20);
         g.setColor(color);
-        g.fillRect(x+10, y-3, 25, 5);
+//        g.fillRect(x, y, 10, 20);
+//        g.fillRect(x, y - 25, 10, 25);
+//        g.fillRect(x, y, 25, 5);
+//        g.fillRect(x+25, y, 10, 20);
+//        g.setColor(color);
+//        g.fillRect(x+10, y-3, 25, 5);
+        g.fillOval(x, y, 15, 15);
     }
 }
