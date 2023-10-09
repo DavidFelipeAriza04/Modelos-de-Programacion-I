@@ -17,6 +17,8 @@ import ConcreteDecorators.Torre;
 import Creator.FichaCreator;
 import Implementation.Color;
 import Product_Abstraccion.Ficha;
+import Singelton.Tablero;
+import Vista.Vista;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +26,7 @@ import java.util.ArrayList;
  * @author david
  */
 public class Main {
-
+    
     public static void main(String args[]) {
         FichaCreator CreatorFichasBlancas = new ConcreteCreatorFichaBlanca();
         FichaCreator CreatorFichasNegras = new ConcreteCreatorFichaNegra();
@@ -119,18 +121,23 @@ public class Main {
             }
         }
 
+        Tablero tablero = Tablero.getTablero(FichasBlancas, FichasNegras);
+
         System.out.println("\n\n*****************************");
-        for (Ficha ficha : FichasBlancas) {
+        for (Ficha ficha : tablero.getFichasBlancas()) {
             System.out.println(ficha.getNombre());
             System.out.println(ficha.getColor());
             System.out.println(ficha.getTipo() + "\n");
         }
+
+        System.out.println("\n\n*****************************");
+        for (Ficha ficha : tablero.getFichasNegras()) {
+            System.out.println(ficha.getNombre());
+            System.out.println(ficha.getColor());
+            System.out.println(ficha.getTipo() + "\n");
+        }
+
+        Vista vista = new Vista();
         
-        System.out.println("\n\n*****************************");
-        for (Ficha ficha : FichasNegras) {
-            System.out.println(ficha.getNombre());
-            System.out.println(ficha.getColor());
-            System.out.println(ficha.getTipo() + "\n");
-        }
     }
 }
