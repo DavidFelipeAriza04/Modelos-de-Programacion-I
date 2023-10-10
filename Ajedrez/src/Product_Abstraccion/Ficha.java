@@ -38,8 +38,7 @@ public abstract class Ficha {
         return this.color.getNombre();
     }
 
-    public abstract void setTipo(String tipo);
-
     public abstract String getTipo();
 
+    public abstract String getImagen();
 }

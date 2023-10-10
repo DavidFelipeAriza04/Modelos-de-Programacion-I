@@ -15,12 +15,9 @@ public class Reina extends TipoFicha {
 
     public Reina(Ficha ficha) {
         super(ficha);
+        this.tipo = "Reina";
     }
 
-    @Override
-    public void setTipo(String tipo) {
-        super.setTipo(tipo);
-    }
 
     @Override
     public String getTipo() {

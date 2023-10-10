@@ -29,11 +29,12 @@ public class FichaNegra extends Ficha {
     }
 
     @Override
-    public void setTipo(String tipo) {
+    public String getTipo() {
+        return "";
     }
 
     @Override
-    public String getTipo() {
-        return "";
+    public String getImagen() {
+        return this.imagen;
     }
 }

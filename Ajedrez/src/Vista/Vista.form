@@ -39,7 +39,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0A">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_rook_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/TorreNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -51,7 +51,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0B">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_knight_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/CaballoNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -63,7 +63,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0C">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_bishop_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/AlfilNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -75,7 +75,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0D">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_king_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/ReyNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -87,7 +87,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0E">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_queen_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/ReinaNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -99,7 +99,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0F">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_bishop_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/AlfilNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -111,7 +111,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0G">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_knight_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/CaballoNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -123,7 +123,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla0H">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_rook_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/TorreNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -135,7 +135,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1A">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -147,7 +147,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1B">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -159,7 +159,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1C">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -171,7 +171,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1D">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -183,7 +183,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1E">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -195,7 +195,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1F">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -207,7 +207,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1G">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -219,7 +219,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla1H">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/b_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonNegro.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -455,7 +455,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6A">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -467,7 +467,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6B">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -479,7 +479,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6C">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -491,7 +491,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6D">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -503,7 +503,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6E">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -515,7 +515,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6F">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -527,7 +527,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6G">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -539,7 +539,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla6H">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_pawn_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/PeonBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -551,7 +551,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7A">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_rook_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/TorreBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -563,7 +563,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7B">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_knight_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/CaballoBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -575,7 +575,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7C">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_bishop_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/AlfilBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -587,7 +587,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7D">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_queen_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/ReinaBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -599,7 +599,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7E">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_king_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/ReyBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -611,7 +611,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7F">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_bishop_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/AlfilBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -623,7 +623,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7G">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_knight_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/CaballoBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -635,7 +635,7 @@
         <Component class="javax.swing.JLabel" name="FichaCasilla7H">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/w_rook_png_shadow_1024px.png"/>
+              <Image iconType="3" name="/Images/TorreBlanco.png"/>
             </Property>
           </Properties>
           <Constraints>

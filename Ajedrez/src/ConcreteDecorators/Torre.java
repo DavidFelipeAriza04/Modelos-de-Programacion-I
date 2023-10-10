@@ -15,12 +15,9 @@ public class Torre extends TipoFicha {
 
     public Torre(Ficha ficha) {
         super(ficha);
+        this.tipo = "Torre";
     }
 
-    @Override
-    public void setTipo(String tipo) {
-        super.setTipo(tipo);
-    }
 
     @Override
     public String getTipo() {

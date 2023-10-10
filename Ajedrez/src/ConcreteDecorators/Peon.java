@@ -15,11 +15,7 @@ public class Peon extends TipoFicha {
 
     public Peon(Ficha ficha) {
         super(ficha);
-    }
-
-    @Override
-    public void setTipo(String tipo) {
-        super.setTipo(tipo);
+        this.tipo = "Peon";
     }
 
     @Override

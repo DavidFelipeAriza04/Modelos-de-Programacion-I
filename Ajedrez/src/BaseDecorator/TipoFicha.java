@@ -37,11 +37,12 @@ public class TipoFicha extends Ficha {
     }
 
     @Override
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public String getTipo() {
         return this.tipo;
+    }
+
+    @Override
+    public String getImagen() {
+        return this.ficha.getImagen();
     }
 }

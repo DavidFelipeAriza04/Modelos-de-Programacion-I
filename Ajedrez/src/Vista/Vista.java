@@ -4,10 +4,13 @@
  */
 package Vista;
 
+import Product_Abstraccion.Ficha;
+import Singelton.Tablero;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,13 +18,20 @@ import javax.swing.JLabel;
  */
 public class Vista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista
-     */
-    public Vista() {
+    private String turno;
+    private Tablero tablero;
+    private ArrayList<JLabel> Casillas;
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public Vista(Tablero tablero) {
+        this.turno = "Blanco";
+        this.tablero = tablero;
         initComponents();
         setLocationRelativeTo(null);
-        ArrayList<JLabel> Casillas = new ArrayList();
+        Casillas = new ArrayList();
         Casillas.add(FichaCasilla0A);
         Casillas.add(FichaCasilla0B);
         Casillas.add(FichaCasilla0C);
@@ -86,24 +96,7 @@ public class Vista extends javax.swing.JFrame {
         Casillas.add(FichaCasilla7F);
         Casillas.add(FichaCasilla7G);
         Casillas.add(FichaCasilla7H);
-
-        for (JLabel Casilla : Casillas) {
-            if (Casilla.getIcon() != null) {
-                Casilla.addMouseListener(click);
-                Casilla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                Casilla.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseEntered(MouseEvent e) {
-                        Casilla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 41)));
-                    }
-
-                    @Override
-                    public void mouseExited(MouseEvent e) {
-                        Casilla.setBorder(null);
-                    }
-                });
-            }
-        }
+        JugadaBlanco();
 
         this.setVisible(true);
     }
@@ -252,52 +245,52 @@ public class Vista extends javax.swing.JFrame {
 
         jPanelTablero.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        FichaCasilla0A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_rook_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TorreNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0A, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 50));
 
-        FichaCasilla0B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_knight_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CaballoNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0B, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 50, 50));
 
-        FichaCasilla0C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_bishop_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AlfilNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0C, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 50, 50));
 
-        FichaCasilla0D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_king_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReyNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0D, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 50, 50));
 
-        FichaCasilla0E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_queen_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReinaNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0E, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 50, 50));
 
-        FichaCasilla0F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_bishop_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AlfilNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0F, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 50, 50));
 
-        FichaCasilla0G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_knight_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CaballoNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0G, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 50, 50));
 
-        FichaCasilla0H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_rook_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla0H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TorreNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla0H, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 50, 50));
 
-        FichaCasilla1A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1A, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 50, 50));
 
-        FichaCasilla1B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1B, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 50, 50));
 
-        FichaCasilla1C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1C, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 50, 50));
 
-        FichaCasilla1D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1D, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 50, 50));
 
-        FichaCasilla1E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1E, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 50, 50));
 
-        FichaCasilla1F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1F, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 50, 50));
 
-        FichaCasilla1G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1G, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 50, 50));
 
-        FichaCasilla1H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla1H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonNegro.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla1H, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 50, 50));
         jPanelTablero.add(FichaCasilla2A, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 50, 50));
         jPanelTablero.add(FichaCasilla2B, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 50, 50));
@@ -332,52 +325,52 @@ public class Vista extends javax.swing.JFrame {
         jPanelTablero.add(FichaCasilla5G, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 50, 50));
         jPanelTablero.add(FichaCasilla5H, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 50, 50));
 
-        FichaCasilla6A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6A, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 50, 50));
 
-        FichaCasilla6B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6B, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 50, 50));
 
-        FichaCasilla6C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6C, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 50, 50));
 
-        FichaCasilla6D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6D, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 50, 50));
 
-        FichaCasilla6E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6E, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 50, 50));
 
-        FichaCasilla6F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6F, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 50, 50));
 
-        FichaCasilla6G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6G, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 50, 50));
 
-        FichaCasilla6H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_pawn_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla6H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PeonBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla6H, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 50, 50));
 
-        FichaCasilla7A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_rook_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TorreBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7A, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 50, 50));
 
-        FichaCasilla7B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_knight_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7B.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CaballoBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7B, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 50, 50));
 
-        FichaCasilla7C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_bishop_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7C.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AlfilBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7C, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 50, 50));
 
-        FichaCasilla7D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_queen_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7D.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReinaBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7D, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 50, 50));
 
-        FichaCasilla7E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_king_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7E.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ReyBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7E, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 50, 50));
 
-        FichaCasilla7F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_bishop_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7F.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AlfilBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7F, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 50, 50));
 
-        FichaCasilla7G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_knight_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7G.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CaballoBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7G, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 50, 50));
 
-        FichaCasilla7H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/w_rook_png_shadow_1024px.png"))); // NOI18N
+        FichaCasilla7H.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TorreBlanco.png"))); // NOI18N
         jPanelTablero.add(FichaCasilla7H, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 50, 50));
 
         Casilla0A.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/square brown light_png_shadow_1024px.png"))); // NOI18N
@@ -709,11 +702,54 @@ public class Vista extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelTablero;
     // End of variables declaration//GEN-END:variables
 
-    MouseAdapter click = new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            System.out.println("Hay una ficha");
-        }
-    };
+    public void JugadaBlanco() {
+        JOptionPane.showMessageDialog(null, "Turno del jugador Blanco");
+        for (JLabel Casilla : Casillas) {
+            if (Casilla.getIcon() != null) {
+                Casilla.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        if (Casilla.getBorder() == null) {
+                            for (Ficha ficha : tablero.getFichasBlancas()) {
+                                if (Casilla.getIcon().toString().equals(new javax.swing.ImageIcon(getClass().getResource(ficha.getImagen())).toString())) {
+                                    Casilla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 41)));
+                                } else {
 
+                                }
+                            }
+                        } else if (Casilla.getBorder() != null) {
+                            Casilla.setBorder(null);
+                        }
+                    }
+                });
+                Casilla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            }
+        }
+    }
+    
+    public void JugadaNegro() {
+        JOptionPane.showMessageDialog(null, "Turno del jugador Negro");
+        for (JLabel Casilla : Casillas) {
+            if (Casilla.getIcon() != null) {
+                Casilla.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        if (Casilla.getBorder() == null) {
+                            for (Ficha ficha : tablero.getFichasNegras()) {
+                                if (Casilla.getIcon().toString().equals(new javax.swing.ImageIcon(getClass().getResource(ficha.getImagen())).toString())) {
+                                    Casilla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 41)));
+                                } else {
+
+                                }
+                            }
+                        } else if (Casilla.getBorder() != null) {
+                            Casilla.setBorder(null);
+                            JugadaBlanco();
+                        }
+                    }
+                });
+                Casilla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            }
+        }
+    }
 }

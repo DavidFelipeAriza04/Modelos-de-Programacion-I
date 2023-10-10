@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * @author david
  */
 public class Main {
-    
+
     public static void main(String args[]) {
         FichaCreator CreatorFichasBlancas = new ConcreteCreatorFichaBlanca();
         FichaCreator CreatorFichasNegras = new ConcreteCreatorFichaNegra();
@@ -38,106 +38,96 @@ public class Main {
         Color Negro = new Negro();
 
         for (int i = 1; i < 9; i++) {
-            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "PeonBlanco" + i, 0, 0, "");
-            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "PeonNegro" + i, 0, 0, "");
+            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "PeonBlanco" + i, 0, 0, "/Images/PeonBlanco.png");
+            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "PeonNegro" + i, 0, 0, "/Images/PeonNegro.png");
             FichasNegras.add(FichaNegra);
             FichasBlancas.add(FichaBlanca);
         }
 
         for (int i = 1; i < 3; i++) {
-            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "TorreBlanca" + i, 0, 0, "");
-            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "TorreNegra" + i, 0, 0, "");
+            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "TorreBlanca" + i, 0, 0, "/Images/TorreBlanco.png");
+            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "TorreNegra" + i, 0, 0, "/Images/TorreNegro.png");
             FichasNegras.add(FichaNegra);
             FichasBlancas.add(FichaBlanca);
         }
 
         for (int i = 1; i < 3; i++) {
-            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "AlfilBlanco" + i, 0, 0, "");
-            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "AlfilNegro" + i, 0, 0, "");
+            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "AlfilBlanco" + i, 0, 0, "/Images/AlfilBlanco.png");
+            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "AlfilNegro" + i, 0, 0, "/Images/AlfilNegro.png");
             FichasNegras.add(FichaNegra);
             FichasBlancas.add(FichaBlanca);
         }
 
         for (int i = 1; i < 3; i++) {
-            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "CaballoBlanco" + i, 0, 0, "");
-            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "CaballoNegro" + i, 0, 0, "");
+            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "CaballoBlanco" + i, 0, 0, "/Images/CaballoBlanco.png");
+            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "CaballoNegro" + i, 0, 0, "/Images/CaballoNegro.png");
             FichasNegras.add(FichaNegra);
             FichasBlancas.add(FichaBlanca);
         }
 
-        Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "ReinaBlanca", 0, 0, "");
-        Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "ReinaNegra", 0, 0, "");
+        Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "ReinaBlanca", 0, 0, "/Images/ReinaBlanco.png");
+        Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "ReinaNegra", 0, 0, "/Images/ReinaNegro.png");
         FichasNegras.add(FichaNegra);
         FichasBlancas.add(FichaBlanca);
 
-        FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "ReyBlanco", 0, 0, "");
-        FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "ReyNegro", 0, 0, "");
+        FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "ReyBlanco", 0, 0, "/Images/ReyBlanco.png");
+        FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "ReyNegro", 0, 0, "/Images/ReyNegro.png");
         FichasNegras.add(FichaNegra);
         FichasBlancas.add(FichaBlanca);
 
         for (int i = 0; i < FichasBlancas.size(); i++) {
             if (i < 8) {
                 Ficha PeonBlanco = new Peon(FichasBlancas.get(i));
-                PeonBlanco.setTipo("Peon");
+//                PeonBlanco.setTipo("Peon");
                 FichasBlancas.set(i, PeonBlanco);
                 Ficha PeonNegro = new Peon(FichasNegras.get(i));
-                PeonNegro.setTipo("Peon");
+//                PeonNegro.setTipo("Peon");
                 FichasNegras.set(i, PeonNegro);
             } else if (i < 10) {
                 Ficha TorreBlanca = new Torre(FichasBlancas.get(i));
-                TorreBlanca.setTipo("Torre");
                 FichasBlancas.set(i, TorreBlanca);
                 Ficha TorreNegro = new Torre(FichasNegras.get(i));
-                TorreNegro.setTipo("Torre");
                 FichasNegras.set(i, TorreNegro);
             } else if (i < 12) {
                 Ficha AlfilBlanco = new Alfil(FichasBlancas.get(i));
-                AlfilBlanco.setTipo("Alfil");
                 FichasBlancas.set(i, AlfilBlanco);
                 Ficha AlfilNegro = new Alfil(FichasNegras.get(i));
-                AlfilNegro.setTipo("Alfil");
                 FichasNegras.set(i, AlfilNegro);
             } else if (i < 14) {
                 Ficha CaballoBlanco = new Caballo(FichasBlancas.get(i));
-                CaballoBlanco.setTipo("Caballo");
                 FichasBlancas.set(i, CaballoBlanco);
                 Ficha CaballoNegro = new Caballo(FichasNegras.get(i));
-                CaballoNegro.setTipo("Caballo");
                 FichasNegras.set(i, CaballoNegro);
             } else if (i == 14) {
                 Ficha ReinaBlanca = new Reina(FichasBlancas.get(i));
-                ReinaBlanca.setTipo("Reina");
                 FichasBlancas.set(i, ReinaBlanca);
                 Ficha ReinaNegra = new Reina(FichasNegras.get(i));
-                ReinaNegra.setTipo("Reina");
                 FichasNegras.set(i, ReinaNegra);
             } else if (i == 15) {
                 Ficha ReyBlanco = new Rey(FichasBlancas.get(i));
-                ReyBlanco.setTipo("Rey");
                 FichasBlancas.set(i, ReyBlanco);
                 Ficha ReyNegro = new Rey(FichasNegras.get(i));
-                ReyNegro.setTipo("Rey");
                 FichasNegras.set(i, ReyNegro);
             }
         }
 
         Tablero tablero = Tablero.getTablero(FichasBlancas, FichasNegras);
 
-        System.out.println("\n\n*****************************");
-        for (Ficha ficha : tablero.getFichasBlancas()) {
-            System.out.println(ficha.getNombre());
-            System.out.println(ficha.getColor());
-            System.out.println(ficha.getTipo() + "\n");
-        }
-
-        System.out.println("\n\n*****************************");
-        for (Ficha ficha : tablero.getFichasNegras()) {
-            System.out.println(ficha.getNombre());
-            System.out.println(ficha.getColor());
-            System.out.println(ficha.getTipo() + "\n");
-        }
-
-        Vista vista = new Vista();
-        
+//        System.out.println("\n\n*****************************");
+//        for (Ficha ficha : tablero.getFichasBlancas()) {
+//            System.out.println(ficha.getNombre());
+//            System.out.println(ficha.getColor());
+//            System.out.println(ficha.getTipo());
+//            System.out.println(ficha.getImagen() + "\n");
+//        }
+//
+//        System.out.println("\n\n*****************************");
+//        for (Ficha ficha : tablero.getFichasNegras()) {
+//            System.out.println(ficha.getNombre());
+//            System.out.println(ficha.getColor());
+//            System.out.println(ficha.getTipo());
+//            System.out.println(ficha.getImagen() + "\n");
+//        }
+        Vista vista = new Vista(tablero);
     }
 }

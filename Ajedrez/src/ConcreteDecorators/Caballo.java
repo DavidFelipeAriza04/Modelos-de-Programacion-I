@@ -15,11 +15,7 @@ public class Caballo extends TipoFicha {
 
     public Caballo(Ficha ficha) {
         super(ficha);
-    }
-
-    @Override
-    public void setTipo(String tipo) {
-        super.setTipo(tipo);
+        this.tipo = "Caballo";
     }
 
     @Override

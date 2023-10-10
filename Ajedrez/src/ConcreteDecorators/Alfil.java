@@ -15,11 +15,7 @@ public class Alfil extends TipoFicha {
 
     public Alfil(Ficha ficha) {
         super(ficha);
-    }
-
-    @Override
-    public void setTipo(String tipo) {
-        super.setTipo(tipo);
+        this.tipo = "Alfil";
     }
 
     @Override
