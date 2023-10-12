@@ -15,7 +15,10 @@ public class Vista extends javax.swing.JFrame {
     /**
      * Creates new form Vista
      */
+    
+    //CONSTRUCTOR DE LA CLSE VISTA
     public Vista() {
+        //INICIAR LOS COMPONENETES DE LA VISTA Y LA HACE VISIBLE
         initComponents();
         this.setResizable(false);
         this.jPanelValidandoDatos.setVisible(false);
@@ -99,10 +102,13 @@ public class Vista extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 
+    //METODO LogIn() EN LA VISTA PARA HACER CAMBIOS EN LA VISTA A TRAVEZ DE HILOS (PARA ESTETICA)
     public void LogIn(Boolean validacion, String usuario) {
+        //INSTANCIA DE NUEVO HILO
         Thread hilo = new Thread() {
             @Override
             public void run() {
+                //sE HACE VISIBLE LA PANTALLA DE CARGA
                 jPanelLogIn.setVisible(false);
                 jPanelValidandoDatos.setVisible(true);
                 jProgressBarValidacion.setMinimum(0);
@@ -119,12 +125,16 @@ public class Vista extends javax.swing.JFrame {
                     porcentaje += random;
                 }
                 jProgressBarValidacion.setValue(100);
+                
+                //VALIDACION DE RESPUESTA DE LOGIN (DEL PARAMETRO)
                 if (validacion) {
+                    //SE HACE VISIBLE LA PANTALLA DE LOGEADO
                     JOptionPane.showMessageDialog(null, "Inicio de sesion correcto");
                     jPanelValidandoDatos.setVisible(false);
                     jPanelSesionIniciada.setVisible(true);
                     jLabelBienvenido.setText("Bienvenido " + usuario);
                 } else {
+                    //DATOS INCORRECTOS SE DEVULVE A LA VISTA DE LOGIN
                     JOptionPane.showMessageDialog(null, "Datos invalidos");
                     jPanelValidandoDatos.setVisible(false);
                     jPanelSesionIniciada.setVisible(false);
