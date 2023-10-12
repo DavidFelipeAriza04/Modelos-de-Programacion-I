@@ -4,11 +4,11 @@
  */
 package Control;
 
-import Proxy.Proxy;
+import Service.Proxy;
 import Vista.Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import ServiceInterface.ServiceInterface;
+import Service.ServiceInterface.ServiceInterface;
 import Service.ServiceAutenticacion;
 
 /**
@@ -17,22 +17,28 @@ import Service.ServiceAutenticacion;
  */
 public class Control implements ActionListener {
 
+    //DECLARACION DE ATRIUBUTOS Y RELACIONES
     private Vista vista;
-    private ServiceInterface autenticacion;
     private ServiceInterface Proxy;
 
     public Control() {
+        //CREA INSTANCIA DE LA VISTA Y AGREGAR EVENTOS
         this.vista = new Vista();
         this.vista.jButtonLogIn.addActionListener(this);
-        this.autenticacion = new ServiceAutenticacion();
     }
 
+    //EVENTOS
     @Override
     public void actionPerformed(ActionEvent e) {
+        //OBTENCION DE DATOS DEL LOG IN
         String usuario = this.vista.jTextFieldUsuario.getText();
         String contrasena = String.valueOf(this.vista.jPasswordFieldContrasena.getPassword());
-        this.Proxy = new Proxy(autenticacion);
+        
+        //SE CREA LA RELACION A LA INTEFACE DEL PROXY Y SE ACCEDE AL METODO LogIn();
+        this.Proxy = new Proxy(new ServiceAutenticacion());
         boolean respuesta = Proxy.LogIn(usuario, contrasena);
+        
+        //SE ACCEDE AL METODO LogIn() DE LA VISTA
         this.vista.LogIn(respuesta,usuario);
     }
 

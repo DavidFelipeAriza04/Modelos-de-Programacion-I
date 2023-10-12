@@ -4,12 +4,14 @@
  */
 package Service;
 
-import ServiceInterface.ServiceInterface;
+import Service.ServiceInterface.ServiceInterface;
 
 /**
  *
  * @author david
  */
+
+//SERVICIO REAL QUE IMPLEMENTA LA INTERFACE
 public class ServiceAutenticacion implements ServiceInterface {
 
     @Override

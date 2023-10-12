@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 public class Practica_Proxy{
 
     public static void main(String[] args) {
+        //MAIN Y EJECUTOR DEL CONTROL A TRAVEZ DE LA INSTANCIA
         Control control = new Control();
     }
 }
