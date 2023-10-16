@@ -14,6 +14,7 @@ public abstract class Silla {   //CLASE ABSTRACTA SILLA
     
     //ATRIBUTOS
     protected int valor;
+    protected Material material;
     
     //METODO ABSTRACTO MOSTRARSILLA
     public abstract void MostrarSilla();

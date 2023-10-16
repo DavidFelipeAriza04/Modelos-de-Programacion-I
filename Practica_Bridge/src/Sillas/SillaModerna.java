@@ -13,9 +13,6 @@ import InterfaceMaterial.Material;
  */
 public class SillaModerna extends Silla {
 
-    //ATRIBUTOS
-    private Material material;
-
     //CONSTRUCTOR
     public SillaModerna(Material material) {
         this.material = material;
