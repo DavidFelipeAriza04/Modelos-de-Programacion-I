@@ -17,7 +17,7 @@ import ConcreteDecorators.Torre;
 import Creator.FichaCreator;
 import Implementation.Color;
 import Product_Abstraccion.Ficha;
-import Singelton.Tablero;
+import Singleton.Tablero;
 import Vista.Vista;
 import java.util.ArrayList;
 
@@ -45,8 +45,8 @@ public class Main {
         }
 
         for (int i = 1; i < 3; i++) {
-            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "TorreBlanca" + i, 0, 0, "/Images/TorreBlanco.png");
-            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "TorreNegra" + i, 0, 0, "/Images/TorreNegro.png");
+            Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "TorreBlanco" + i, 0, 0, "/Images/TorreBlanco.png");
+            Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "TorreNegro" + i, 0, 0, "/Images/TorreNegro.png");
             FichasNegras.add(FichaNegra);
             FichasBlancas.add(FichaBlanca);
         }
@@ -65,8 +65,8 @@ public class Main {
             FichasBlancas.add(FichaBlanca);
         }
 
-        Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "ReinaBlanca", 0, 0, "/Images/ReinaBlanco.png");
-        Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "ReinaNegra", 0, 0, "/Images/ReinaNegro.png");
+        Ficha FichaBlanca = CreatorFichasBlancas.CrearFicha(Blanco, "ReinaBlanco", 0, 0, "/Images/ReinaBlanco.png");
+        Ficha FichaNegra = CreatorFichasNegras.CrearFicha(Negro, "ReinaNegro", 0, 0, "/Images/ReinaNegro.png");
         FichasNegras.add(FichaNegra);
         FichasBlancas.add(FichaBlanca);
 
