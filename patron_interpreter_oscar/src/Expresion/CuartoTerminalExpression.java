@@ -6,13 +6,12 @@ package Expresion;
 
 /**
  *
- * @author oscar
+ * @author david
  */
-public class TerceroTerminalExpresion extends AbstractExpresion{
-    
+public class CuartoTerminalExpression extends AbstractExpresion {
+
     @Override
-    public int base(){
-        return (int) Math.pow(2, 2);
+    public int base() {
+        return (int) Math.pow(2, 3);
     }
-    
 }
