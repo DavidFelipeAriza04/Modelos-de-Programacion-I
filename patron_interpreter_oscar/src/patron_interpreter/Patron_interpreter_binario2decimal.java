@@ -27,10 +27,9 @@ public class Patron_interpreter_binario2decimal {
         Contexto contexto = new Contexto(reverseNumero);
 
         ArrayList<AbstractExpresion> arbolEx = new ArrayList<AbstractExpresion>();
-        AbstractExpresion primero = new TerminalExpresion();
-        arbolEx.add(primero);
-        arbolEx.add(new SegundoTerminalExpresion(primero));
-        arbolEx.add(new TerceroTerminalExpresion(primero));
+        arbolEx.add(new TerminalExpresion());
+        arbolEx.add(new SegundoTerminalExpresion());
+        arbolEx.add(new TerceroTerminalExpresion());
 
         Iterator<AbstractExpresion> it = arbolEx.iterator();
         while (it.hasNext()) {

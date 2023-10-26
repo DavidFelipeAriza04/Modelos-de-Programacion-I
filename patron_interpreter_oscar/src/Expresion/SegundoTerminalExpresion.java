@@ -13,14 +13,6 @@ import jdk.jfr.Experimental;
  */
 public class SegundoTerminalExpresion extends AbstractExpresion {
     
-    AbstractExpresion exp;
-
-    public SegundoTerminalExpresion(AbstractExpresion exp) {
-        this.exp = exp;
-    }
-    
-    
-    
     @Override
     public int base(){
         return (int) Math.pow(2, 1);
