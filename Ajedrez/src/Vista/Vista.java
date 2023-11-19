@@ -108,8 +108,9 @@ public class Vista extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelCasillas.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelCasillas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanelCasillas.setOpaque(false);
-        jPanelCasillas.setLayout(new java.awt.GridLayout());
+        jPanelCasillas.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(jPanelCasillas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 400, 400));
 
         jLabelTablero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Tablero.png"))); // NOI18N

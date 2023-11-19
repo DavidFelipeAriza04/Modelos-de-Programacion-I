@@ -15,15 +15,20 @@ public class Prueba extends JFrame {
     private String Ficha_a_mover;
 
     public Prueba(ArrayList<Ficha> FichasBlancas, ArrayList<Ficha> FichasNegras) {
+
         setTitle("Chess Board");
-        setSize(600, 600);
+        setSize(500, 530);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
-        chessBoard = new JPanel(new GridLayout(boardSize, boardSize));
-        chessBoard.setSize(500,500);
         this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(chessBoard);
+
+        chessBoard = new JPanel(new GridLayout(boardSize, boardSize));
+        chessBoard.setSize(400, 400);
+        this.add(chessBoard, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 400, 400));
+
+        JLabel jLabelFondo = new JLabel();
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Tablero.png"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         squares = new JPanel[boardSize][boardSize];
         initializeChessBoard(FichasBlancas, FichasNegras);
@@ -167,8 +172,11 @@ public class Prueba extends JFrame {
             if (fromRow == 6 && isValidMove(fromRow, fromCol, fromRow - 2, fromCol, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol].setBackground(Color.GREEN);
                 squares[fromRow - 1][fromCol].setBackground(Color.GREEN);
+                squares[fromRow - 2][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             } else if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol].setBackground(Color.GREEN);
+                squares[fromRow - 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             } else {
                 clearPossibleMoves();
             }
@@ -176,37 +184,46 @@ public class Prueba extends JFrame {
         else if (Nombre_Ficha.contains("CaballoBlanco")) {
             if (isValidMove(fromRow, fromCol, fromRow - 2, fromCol + 1, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol + 1].setBackground(Color.GREEN);
+                squares[fromRow - 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow - 2, fromCol - 1, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol - 1].setBackground(Color.GREEN);
+                squares[fromRow - 2][fromCol - 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 2, fromCol + 1, Nombre_Ficha)) {
                 squares[fromRow + 2][fromCol + 1].setBackground(Color.GREEN);
+                squares[fromRow + 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 2, fromCol - 1, Nombre_Ficha)) {
                 squares[fromRow + 2][fromCol - 1].setBackground(Color.GREEN);
+                squares[fromRow + 2][fromCol - 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 1, fromCol - 2, Nombre_Ficha)) {
                 squares[fromRow + 1][fromCol - 2].setBackground(Color.GREEN);
+                squares[fromRow + 1][fromCol - 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 1, fromCol + 2, Nombre_Ficha)) {
                 squares[fromRow + 1][fromCol + 2].setBackground(Color.GREEN);
+                squares[fromRow + 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol - 2, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol - 2].setBackground(Color.GREEN);
+                squares[fromRow - 1][fromCol - 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
             if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol + 2, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol + 2].setBackground(Color.GREEN);
+                squares[fromRow - 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
             }
         } //TORRE BLANCO
         else if (Nombre_Ficha.contains("TorreBlanco")) {
             for (int i = 0; i < boardSize; i++) {
                 if (i != fromRow && isValidMove(fromRow, fromCol, i, fromCol, Nombre_Ficha)) {
                     squares[i][fromCol].setBackground(Color.GREEN);
-                    squares[i][fromCol].setBorder(null);
+                    squares[i][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
                 }
                 if (i != fromCol && isValidMove(fromRow, fromCol, fromRow, i, Nombre_Ficha)) {
                     squares[fromRow][i].setBackground(Color.GREEN);
+                    squares[fromRow][i].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
                 }
             }
 
@@ -287,8 +304,10 @@ public class Prueba extends JFrame {
             for (int col = 0; col < boardSize; col++) {
                 if ((row + col) % 2 == 0) {
                     squares[row][col].setBackground(new Color(194, 181, 164));
+                    squares[row][col].setBorder(null);
                 } else {
                     squares[row][col].setBackground(new Color(100, 70, 59));
+                    squares[row][col].setBorder(null);
                 }
             }
         }
