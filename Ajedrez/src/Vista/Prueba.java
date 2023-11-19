@@ -215,6 +215,7 @@ public class Prueba extends JFrame {
                 squares[fromRow - 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
         } //TORRE BLANCO
+        //TORRE BLANCO
         else if (Nombre_Ficha.contains("TorreBlanco")) {
             for (int i = 0; i < boardSize; i++) {
                 if (i != fromRow && isValidMove(fromRow, fromCol, i, fromCol, Nombre_Ficha)) {
@@ -227,7 +228,37 @@ public class Prueba extends JFrame {
                 }
             }
 
-        } else if (Nombre_Ficha.contains("AlfilBlanco")) {
+        } //ALFIL BLANCO
+        else if (Nombre_Ficha.contains("AlfilBlanco")) {
+            for (int i = 0; i < boardSize; i++) {
+                for (int j = 0; j < boardSize; j++) {
+                    if (isValidMove(fromRow, fromCol, i, j, Nombre_Ficha)) {
+                        squares[i][j].setBackground(Color.GREEN);
+                        squares[i][j].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                    }
+                }
+            }
+        } //REY BLANCO
+        else if (Nombre_Ficha.contains("ReyBlanco")) {
+
+            for (int i = -1; i < 2; i++) {
+                for (int j = -1; j < 2; j++) {
+                    if (i == 0 && j == 0) {
+                        continue;
+                    }
+
+                    int toRow = fromRow + i;
+                    int toCol = fromCol + j;
+
+                    if (isValidMove(fromRow, fromCol, toRow, toCol, Nombre_Ficha)) {
+                        squares[toRow][toCol].setBackground(Color.GREEN);
+                        squares[toRow][toCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+                    }
+                }
+            }
+        } //REINA BLANCO
+        else if (Nombre_Ficha.contains("ReinaBlanco")) {
             for (int i = 0; i < boardSize; i++) {
                 for (int j = 0; j < boardSize; j++) {
                     if (isValidMove(fromRow, fromCol, i, j, Nombre_Ficha)) {
@@ -246,9 +277,9 @@ public class Prueba extends JFrame {
         //PEON BLANCO
         if (Nombre_Ficha.contains("PeonBlanco")) {
             if (fromRow == 6) {
-                return (Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow <= 2) && (!isPieceInPath(toRow, toCol) && !isPieceInPath(fromRow - 1, toCol)));
+                return (Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow <= 2) && (!isPieceInPath(toRow, toCol) && squares[fromRow - 1][fromCol].getName() == null));
             } else {
-                return Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow == 1) && !isPieceInPath(toRow, toCol);
+                return Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow == 1) && squares[fromRow - 1][fromCol].getName() == null;
             }
         }
 
@@ -307,12 +338,41 @@ public class Prueba extends JFrame {
             }
         }
 
+        if (Nombre_Ficha.contains("ReyBlanco")) {
+            if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
+                return false;
+            } else {
+                return Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow) <= 1 && !isPieceInPath(toRow, toCol);
+            }
+        }
+
+        if (Nombre_Ficha.contains("ReinaBlanco")) {
+            if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
+                return false;
+            } else if (fromRow == toRow || fromCol == toCol || Math.abs(toRow - fromRow) == Math.abs(toCol - fromCol)) {
+                int rowStep = Integer.compare(toRow, fromRow);
+                int colStep = Integer.compare(toCol, fromCol);
+
+                int currentRow = fromRow + rowStep;
+                int currentCol = fromCol + colStep;
+
+                while (currentRow != toRow || currentCol != toCol) {
+                    if (isPieceInPath(currentRow, currentCol)) {
+                        return false; // Hay una ficha en el camino
+                    }
+                    currentRow += rowStep;
+                    currentCol += colStep;
+                }
+
+                return !isPieceInPath(toRow, toCol); // No hay ficha en el camino
+            }
+        }
         return false;
     }
 
     private boolean isPieceInPath(int row, int col) {
         // Verificar si hay una ficha en la casilla
-        return squares[row][col].getName() != null;
+        return squares[row][col].getName() != null && squares[row][col].getName().contains("Blanco");
     }
 
     public void swapPieces(int fromRow, int fromCol, int toRow, int toCol) {
