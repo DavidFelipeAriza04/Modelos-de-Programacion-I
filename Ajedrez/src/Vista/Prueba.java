@@ -16,11 +16,13 @@ public class Prueba extends JFrame {
 
     public Prueba(ArrayList<Ficha> FichasBlancas, ArrayList<Ficha> FichasNegras) {
         setTitle("Chess Board");
-        setSize(400, 400);
+        setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
+        
         chessBoard = new JPanel(new GridLayout(boardSize, boardSize));
+        chessBoard.setSize(500,500);
+        this.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(chessBoard);
 
         squares = new JPanel[boardSize][boardSize];
@@ -35,9 +37,9 @@ public class Prueba extends JFrame {
                 JPanel square = new JPanel();
                 square.setLayout(new BorderLayout());
                 if ((row + col) % 2 == 0) {
-                    square.setBackground(Color.WHITE);
+                    square.setBackground(new Color(194, 181, 164));
                 } else {
-                    square.setBackground(Color.BLACK);
+                    square.setBackground(new Color(100, 70, 59));
                 }
 //                square.addMouseListener(new SquareMouseListener(row, col));
                 square.addMouseListener(new SquareMouseListener(row, col, this));
@@ -159,6 +161,8 @@ public class Prueba extends JFrame {
     public void showPossibleMoves(int fromRow, int fromCol, String Nombre_Ficha) {
         // Implementa la lógica para mostrar las casillas a las que puede moverse el peón
         // Por ejemplo, resaltar la casilla inmediatamente delante del peón y dos casillas en su primer movimiento
+
+        //PEON BLANCO
         if (Nombre_Ficha.contains("PeonBlanco")) {
             if (fromRow == 6 && isValidMove(fromRow, fromCol, fromRow - 2, fromCol, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol].setBackground(Color.GREEN);
@@ -168,7 +172,8 @@ public class Prueba extends JFrame {
             } else {
                 clearPossibleMoves();
             }
-        } else if (Nombre_Ficha.contains("CaballoBlanco")) {
+        } //CABALLO BLANCO
+        else if (Nombre_Ficha.contains("CaballoBlanco")) {
             if (isValidMove(fromRow, fromCol, fromRow - 2, fromCol + 1, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol + 1].setBackground(Color.GREEN);
             }
@@ -193,25 +198,17 @@ public class Prueba extends JFrame {
             if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol + 2, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol + 2].setBackground(Color.GREEN);
             }
-        } else if (Nombre_Ficha.contains("TorreBlanco")) {
+        } //TORRE BLANCO
+        else if (Nombre_Ficha.contains("TorreBlanco")) {
             for (int i = 0; i < boardSize; i++) {
-                if (isValidMove(fromRow, fromCol, fromRow - i, fromCol, Nombre_Ficha)) {
-                    squares[fromRow - i][fromCol].setBackground(Color.GREEN);
-                }else{
-                    break;
+                if (i != fromRow && isValidMove(fromRow, fromCol, i, fromCol, Nombre_Ficha)) {
+                    squares[i][fromCol].setBackground(Color.GREEN);
+                    squares[i][fromCol].setBorder(null);
+                }
+                if (i != fromCol && isValidMove(fromRow, fromCol, fromRow, i, Nombre_Ficha)) {
+                    squares[fromRow][i].setBackground(Color.GREEN);
                 }
             }
-//            for (int i = 0; i < boardSize; i++) {
-//                if (isValidMove(fromRow, fromCol, fromRow + i, fromCol, Nombre_Ficha)) {
-//                    squares[fromRow + i][fromCol].setBackground(Color.GREEN);
-//                }
-//            }
-//                if (isValidMove(fromRow, fromCol, fromRow, fromCol - i, Nombre_Ficha)) {
-//                    squares[fromRow][fromCol - i].setBackground(Color.GREEN);
-//                }
-//                if (isValidMove(fromRow, fromCol, fromRow, fromCol + i, Nombre_Ficha)) {
-//                    squares[fromRow][fromCol + i].setBackground(Color.GREEN);
-//                }
 
         } else {
             System.out.println("Esto no es un peon blanco");
@@ -222,38 +219,66 @@ public class Prueba extends JFrame {
     public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol, String Nombre_Ficha) {
         // Implementa la lógica de validación del movimiento del peón
         // Por ejemplo, permite el movimiento hacia adelante y captura en diagonal
+
+        //PEON BLANCO
         if (Nombre_Ficha.contains("PeonBlanco")) {
             if (fromRow == 6) {
-                return (Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow <= 2) && (squares[toRow][toCol].getName() == null && squares[fromRow - 1][toCol].getName() == null));
+                return (Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow <= 2) && (!isPieceInPath(toRow, toCol) && !isPieceInPath(fromRow - 1, toCol)));
             } else {
-                return Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow == 1) && squares[toRow][toCol].getName() == null;
+                return Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow == 1) && !isPieceInPath(toRow, toCol);
             }
         }
+
+        //CABALLO BLANCO
         if (Nombre_Ficha.contains("CaballoBlanco")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
             } else {
-                return Math.abs(toCol - fromCol) <= 2 && (fromRow - toRow <= 2) && squares[toRow][toCol].getName() == null;
+                return Math.abs(toCol - fromCol) <= 2 && (fromRow - toRow <= 2) && !isPieceInPath(toRow, toCol);
             }
         }
+
+        //TORRE BLANCO
         if (Nombre_Ficha.contains("TorreBlanco")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
-            } else {
-                return Math.abs(toCol - fromCol) <= 7 && (fromRow - toRow <= 7) && squares[toRow][toCol].getName() == null;
+            } else if (fromRow == toRow) {
+                // Movimiento horizontal
+                int step = Integer.compare(toCol, fromCol);
+                for (int i = fromCol + step; i != toCol; i += step) {
+                    if (isPieceInPath(fromRow, i)) {
+                        return false; // Hay una pieza en el camino
+                    }
+                }
+            } else if (fromCol == toCol) {
+                // Movimiento vertical
+                int step = Integer.compare(toRow, fromRow);
+                for (int i = fromRow + step; i != toRow; i += step) {
+                    if (isPieceInPath(i, fromCol)) {
+                        return false; // Hay una pieza en el camino
+                    }
+                }
             }
+            return !isPieceInPath(toRow, toCol);
         }
         return false;
     }
 
+    private boolean isPieceInPath(int row, int col) {
+        // Verificar si hay una ficha en la casilla
+        return squares[row][col].getComponentCount() > 0;
+    }
+
     public void swapPieces(int fromRow, int fromCol, int toRow, int toCol) {
-        Component piece = squares[fromRow][fromCol].getComponent(0);
-        squares[fromRow][fromCol].remove(piece);
-        String Nombre_Ficha = squares[fromRow][fromCol].getName();
-        squares[toRow][toCol].add(piece);
-        squares[toRow][toCol].setName(Nombre_Ficha);
-        squares[fromRow][fromCol].setName(null);
-        repaint();
+        if (squares[toRow][toCol].getBackground() == Color.GREEN) {
+            Component piece = squares[fromRow][fromCol].getComponent(0);
+            squares[fromRow][fromCol].remove(piece);
+            String Nombre_Ficha = squares[fromRow][fromCol].getName();
+            squares[toRow][toCol].add(piece);
+            squares[toRow][toCol].setName(Nombre_Ficha);
+            squares[fromRow][fromCol].setName(null);
+            repaint();
+        }
     }
 
     public void clearPossibleMoves() {
@@ -261,9 +286,9 @@ public class Prueba extends JFrame {
         for (int row = 0; row < boardSize; row++) {
             for (int col = 0; col < boardSize; col++) {
                 if ((row + col) % 2 == 0) {
-                    squares[row][col].setBackground(Color.WHITE);
+                    squares[row][col].setBackground(new Color(194, 181, 164));
                 } else {
-                    squares[row][col].setBackground(Color.BLACK);
+                    squares[row][col].setBackground(new Color(100, 70, 59));
                 }
             }
         }
