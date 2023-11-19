@@ -4,8 +4,8 @@
  */
 package Main;
 
-import Colores.Blanco;
-import Colores.Negro;
+import ConcreteImplentation.Blanco;
+import ConcreteImplentation.Negro;
 import ConcreteCreator.ConcreteCreatorFichaBlanca;
 import ConcreteCreator.ConcreteCreatorFichaNegra;
 import ConcreteDecorators.Alfil;
@@ -18,7 +18,7 @@ import Creator.FichaCreator;
 import Implementation.Color;
 import Product_Abstraccion.Ficha;
 import Singleton.Tablero;
-import Vista.Vista;
+import Vista.Prueba;
 import java.util.ArrayList;
 
 /**
@@ -128,6 +128,7 @@ public class Main {
 //            System.out.println(ficha.getTipo());
 //            System.out.println(ficha.getImagen() + "\n");
 //        }
-        Vista vista = new Vista(tablero);
+//        Vista vista = new Vista(tablero);
+        Prueba prueba = new Prueba(FichasBlancas, FichasNegras);
     }
 }
