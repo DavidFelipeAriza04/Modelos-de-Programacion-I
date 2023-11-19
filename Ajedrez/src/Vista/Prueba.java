@@ -172,11 +172,11 @@ public class Prueba extends JFrame {
             if (fromRow == 6 && isValidMove(fromRow, fromCol, fromRow - 2, fromCol, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol].setBackground(Color.GREEN);
                 squares[fromRow - 1][fromCol].setBackground(Color.GREEN);
-                squares[fromRow - 2][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
-                squares[fromRow - 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 2][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                squares[fromRow - 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             } else if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol].setBackground(Color.GREEN);
-                squares[fromRow - 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             } else {
                 clearPossibleMoves();
             }
@@ -184,52 +184,58 @@ public class Prueba extends JFrame {
         else if (Nombre_Ficha.contains("CaballoBlanco")) {
             if (isValidMove(fromRow, fromCol, fromRow - 2, fromCol + 1, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol + 1].setBackground(Color.GREEN);
-                squares[fromRow - 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow - 2, fromCol - 1, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol - 1].setBackground(Color.GREEN);
-                squares[fromRow - 2][fromCol - 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 2][fromCol - 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 2, fromCol + 1, Nombre_Ficha)) {
                 squares[fromRow + 2][fromCol + 1].setBackground(Color.GREEN);
-                squares[fromRow + 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow + 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 2, fromCol - 1, Nombre_Ficha)) {
                 squares[fromRow + 2][fromCol - 1].setBackground(Color.GREEN);
-                squares[fromRow + 2][fromCol - 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow + 2][fromCol - 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 1, fromCol - 2, Nombre_Ficha)) {
                 squares[fromRow + 1][fromCol - 2].setBackground(Color.GREEN);
-                squares[fromRow + 1][fromCol - 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow + 1][fromCol - 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow + 1, fromCol + 2, Nombre_Ficha)) {
                 squares[fromRow + 1][fromCol + 2].setBackground(Color.GREEN);
-                squares[fromRow + 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow + 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol - 2, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol - 2].setBackground(Color.GREEN);
-                squares[fromRow - 1][fromCol - 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 1][fromCol - 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
             if (isValidMove(fromRow, fromCol, fromRow - 1, fromCol + 2, Nombre_Ficha)) {
                 squares[fromRow - 1][fromCol + 2].setBackground(Color.GREEN);
-                squares[fromRow - 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                squares[fromRow - 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
         } //TORRE BLANCO
         else if (Nombre_Ficha.contains("TorreBlanco")) {
             for (int i = 0; i < boardSize; i++) {
                 if (i != fromRow && isValidMove(fromRow, fromCol, i, fromCol, Nombre_Ficha)) {
                     squares[i][fromCol].setBackground(Color.GREEN);
-                    squares[i][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                    squares[i][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
                 }
                 if (i != fromCol && isValidMove(fromRow, fromCol, fromRow, i, Nombre_Ficha)) {
                     squares[fromRow][i].setBackground(Color.GREEN);
-                    squares[fromRow][i].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0),2));
+                    squares[fromRow][i].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
                 }
             }
 
-        } else {
-            System.out.println("Esto no es un peon blanco");
-            clearPossibleMoves();
+        } else if (Nombre_Ficha.contains("AlfilBlanco")) {
+            for (int i = 0; i < boardSize; i++) {
+                for (int j = 0; j < boardSize; j++) {
+                    if (isValidMove(fromRow, fromCol, i, j, Nombre_Ficha)) {
+                        squares[i][j].setBackground(Color.GREEN);
+                        squares[i][j].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                    }
+                }
+            }
         }
     }
 
@@ -278,12 +284,35 @@ public class Prueba extends JFrame {
             }
             return !isPieceInPath(toRow, toCol);
         }
+
+        if (Nombre_Ficha.contains("AlfilBlanco")) {
+            if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
+                return false;
+            } else if (Math.abs(toRow - fromRow) == Math.abs(toCol - fromCol) && fromRow != toRow && fromCol != toCol) {
+                int rowStep = Integer.compare(toRow, fromRow);
+                int colStep = Integer.compare(toCol, fromCol);
+
+                int currentRow = fromRow + rowStep;
+                int currentCol = fromCol + colStep;
+
+                while (currentRow != toRow || currentCol != toCol) {
+                    if (isPieceInPath(currentRow, currentCol)) {
+                        return false; // Hay una ficha en el camino
+                    }
+                    currentRow += rowStep;
+                    currentCol += colStep;
+                }
+
+                return !isPieceInPath(toRow, toCol); // No hay ficha en el camino
+            }
+        }
+
         return false;
     }
 
     private boolean isPieceInPath(int row, int col) {
         // Verificar si hay una ficha en la casilla
-        return squares[row][col].getComponentCount() > 0;
+        return squares[row][col].getName() != null;
     }
 
     public void swapPieces(int fromRow, int fromCol, int toRow, int toCol) {
