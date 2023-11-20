@@ -28,14 +28,20 @@ public class SquareMouseListener extends MouseAdapter {
         if (this.vista.getSelectedRow() == -1 && this.vista.getSelectedCol() == -1) {
             this.vista.setSelectedRow(row);
             this.vista.setSelectedCol(col);
+            this.vista.setFicha_a_mover(this.vista.getSquares()[row][col].getName());
+
             if (this.vista.getSquares()[row][col].getName() != null) {
                 System.out.println(this.vista.getSquares()[row][col].getName());
-                this.vista.showPossibleMoves(this.vista.getSelectedRow(), this.vista.getSelectedCol(), this.vista.getSquares()[row][col].getName());
+                if (this.vista.getFicha_a_mover().contains(this.vista.getTurno())) {
+                    this.vista.showPossibleMoves(this.vista.getSelectedRow(), this.vista.getSelectedCol(), this.vista.getSquares()[row][col].getName());
+                }else{
+                    this.vista.clearPossibleMoves();
+                }
             } else {
                 System.out.println("Casilla Vacia");
                 this.vista.clearPossibleMoves();
             }
-            this.vista.setFicha_a_mover(this.vista.getSquares()[row][col].getName());
+
         } else {
             if (this.vista.isValidMove(this.vista.getSelectedRow(), this.vista.getSelectedCol(), row, col, this.vista.getFicha_a_mover())) {
                 this.vista.swapPieces(this.vista.getSelectedRow(), this.vista.getSelectedCol(), row, col);

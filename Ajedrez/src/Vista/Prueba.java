@@ -13,6 +13,7 @@ public class Prueba extends JFrame {
     private int selectedRow = -1;
     private int selectedCol = -1;
     private String Ficha_a_mover;
+    private String Turno = "Blanco";
 
     public Prueba(ArrayList<Ficha> FichasBlancas, ArrayList<Ficha> FichasNegras) {
 
@@ -180,8 +181,22 @@ public class Prueba extends JFrame {
             } else {
                 clearPossibleMoves();
             }
-        } //CABALLO BLANCO
-        else if (Nombre_Ficha.contains("CaballoBlanco")) {
+        } // PEON NEGRO
+        else if (Nombre_Ficha.contains("PeonNegro")) {
+            if (fromRow == 1 && isValidMove(fromRow, fromCol, fromRow + 2, fromCol, Nombre_Ficha)) {
+                squares[fromRow + 2][fromCol].setBackground(Color.GREEN);
+                squares[fromRow + 1][fromCol].setBackground(Color.GREEN);
+                squares[fromRow + 2][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                squares[fromRow + 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+            } else if (isValidMove(fromRow, fromCol, fromRow + 1, fromCol, Nombre_Ficha)) {
+                squares[fromRow + 1][fromCol].setBackground(Color.GREEN);
+                squares[fromRow + 1][fromCol].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+            } else {
+                clearPossibleMoves();
+            }
+
+        } //CABALLO
+        else if (Nombre_Ficha.contains("Caballo")) {
             if (isValidMove(fromRow, fromCol, fromRow - 2, fromCol + 1, Nombre_Ficha)) {
                 squares[fromRow - 2][fromCol + 1].setBackground(Color.GREEN);
                 squares[fromRow - 2][fromCol + 1].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -214,9 +229,8 @@ public class Prueba extends JFrame {
                 squares[fromRow - 1][fromCol + 2].setBackground(Color.GREEN);
                 squares[fromRow - 1][fromCol + 2].setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
             }
-        } //TORRE BLANCO
-        //TORRE BLANCO
-        else if (Nombre_Ficha.contains("TorreBlanco")) {
+        } //TORRE
+        else if (Nombre_Ficha.contains("Torre")) {
             for (int i = 0; i < boardSize; i++) {
                 if (i != fromRow && isValidMove(fromRow, fromCol, i, fromCol, Nombre_Ficha)) {
                     squares[i][fromCol].setBackground(Color.GREEN);
@@ -228,8 +242,8 @@ public class Prueba extends JFrame {
                 }
             }
 
-        } //ALFIL BLANCO
-        else if (Nombre_Ficha.contains("AlfilBlanco")) {
+        } //ALFIL
+        else if (Nombre_Ficha.contains("Alfil")) {
             for (int i = 0; i < boardSize; i++) {
                 for (int j = 0; j < boardSize; j++) {
                     if (isValidMove(fromRow, fromCol, i, j, Nombre_Ficha)) {
@@ -238,8 +252,8 @@ public class Prueba extends JFrame {
                     }
                 }
             }
-        } //REY BLANCO
-        else if (Nombre_Ficha.contains("ReyBlanco")) {
+        } //REY
+        else if (Nombre_Ficha.contains("Rey")) {
 
             for (int i = -1; i < 2; i++) {
                 for (int j = -1; j < 2; j++) {
@@ -257,8 +271,8 @@ public class Prueba extends JFrame {
                     }
                 }
             }
-        } //REINA BLANCO
-        else if (Nombre_Ficha.contains("ReinaBlanco")) {
+        } //REINA
+        else if (Nombre_Ficha.contains("Reina")) {
             for (int i = 0; i < boardSize; i++) {
                 for (int j = 0; j < boardSize; j++) {
                     if (isValidMove(fromRow, fromCol, i, j, Nombre_Ficha)) {
@@ -276,15 +290,28 @@ public class Prueba extends JFrame {
 
         //PEON BLANCO
         if (Nombre_Ficha.contains("PeonBlanco")) {
-            if (fromRow == 6) {
+            if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
+                return false;
+            } else if (fromRow == 6) {
                 return (Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow <= 2) && (!isPieceInPath(toRow, toCol) && squares[fromRow - 1][fromCol].getName() == null));
             } else {
                 return Math.abs(toCol - fromCol) <= 1 && (fromRow - toRow == 1) && squares[fromRow - 1][fromCol].getName() == null;
             }
         }
 
-        //CABALLO BLANCO
-        if (Nombre_Ficha.contains("CaballoBlanco")) {
+        //PEON NEGRO
+        if (Nombre_Ficha.contains("PeonNegro")) {
+            if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
+                return false;
+            } else if (fromRow == 1) {
+                return (Math.abs(toCol - fromCol) <= 1 && Math.abs(fromRow - toRow) <= 2 && (!isPieceInPath(toRow, toCol) && squares[fromRow + 1][fromCol].getName() == null));
+            } else {
+                return Math.abs(toCol - fromCol) <= 1 && Math.abs(fromRow - toRow) == 1 && squares[fromRow + 1][fromCol].getName() == null;
+            }
+        }
+
+        //CABALLO
+        if (Nombre_Ficha.contains("Caballo")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
             } else {
@@ -292,8 +319,8 @@ public class Prueba extends JFrame {
             }
         }
 
-        //TORRE BLANCO
-        if (Nombre_Ficha.contains("TorreBlanco")) {
+        //TORRE
+        if (Nombre_Ficha.contains("Torre")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
             } else if (fromRow == toRow) {
@@ -316,7 +343,8 @@ public class Prueba extends JFrame {
             return !isPieceInPath(toRow, toCol);
         }
 
-        if (Nombre_Ficha.contains("AlfilBlanco")) {
+        //ALFIL
+        if (Nombre_Ficha.contains("Alfil")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
             } else if (Math.abs(toRow - fromRow) == Math.abs(toCol - fromCol) && fromRow != toRow && fromCol != toCol) {
@@ -338,7 +366,8 @@ public class Prueba extends JFrame {
             }
         }
 
-        if (Nombre_Ficha.contains("ReyBlanco")) {
+        //REY
+        if (Nombre_Ficha.contains("Rey")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
             } else {
@@ -346,7 +375,8 @@ public class Prueba extends JFrame {
             }
         }
 
-        if (Nombre_Ficha.contains("ReinaBlanco")) {
+        //REINA
+        if (Nombre_Ficha.contains("Reina")) {
             if (toRow >= boardSize || toCol >= boardSize || toRow < 0 || toCol < 0) {
                 return false;
             } else if (fromRow == toRow || fromCol == toCol || Math.abs(toRow - fromRow) == Math.abs(toCol - fromCol)) {
@@ -367,12 +397,17 @@ public class Prueba extends JFrame {
                 return !isPieceInPath(toRow, toCol); // No hay ficha en el camino
             }
         }
+
         return false;
     }
 
     private boolean isPieceInPath(int row, int col) {
         // Verificar si hay una ficha en la casilla
-        return squares[row][col].getName() != null && squares[row][col].getName().contains("Blanco");
+        if (Turno.equals("Blanco")) {
+            return squares[row][col].getName() != null && squares[row][col].getName().contains("Blanco");
+        } else {
+            return squares[row][col].getName() != null && squares[row][col].getName().contains("Negro");
+        }
     }
 
     public void swapPieces(int fromRow, int fromCol, int toRow, int toCol) {
@@ -384,6 +419,12 @@ public class Prueba extends JFrame {
             squares[toRow][toCol].setName(Nombre_Ficha);
             squares[fromRow][fromCol].setName(null);
             repaint();
+            if (this.Turno.equals("Blanco")) {
+                this.Turno = "Negro";
+            } else {
+                this.Turno = "Blanco";
+            }
+            JOptionPane.showMessageDialog(null, "El turno del jugador " + Turno);
         }
     }
 
@@ -430,6 +471,10 @@ public class Prueba extends JFrame {
 
     public JPanel[][] getSquares() {
         return squares;
+    }
+
+    public String getTurno() {
+        return Turno;
     }
 
 }
