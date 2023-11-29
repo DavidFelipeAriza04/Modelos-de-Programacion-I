@@ -4,7 +4,6 @@
  */
 package Product_Abstraccion;
 
-import BaseDecorator.TipoFicha;
 import Implementation.Color;
 
 /**

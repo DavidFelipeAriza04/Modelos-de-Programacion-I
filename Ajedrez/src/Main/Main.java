@@ -17,7 +17,7 @@ import ConcreteDecorators.Torre;
 import Creator.FichaCreator;
 import Implementation.Color;
 import Product_Abstraccion.Ficha;
-import Singleton.Tablero;
+import Singleton_Context.Tablero;
 import Vista.Prueba;
 import java.util.ArrayList;
 
@@ -112,23 +112,6 @@ public class Main {
         }
 
         Tablero tablero = Tablero.getTablero(FichasBlancas, FichasNegras);
-
-//        System.out.println("\n\n*****************************");
-//        for (Ficha ficha : tablero.getFichasBlancas()) {
-//            System.out.println(ficha.getNombre());
-//            System.out.println(ficha.getColor());
-//            System.out.println(ficha.getTipo());
-//            System.out.println(ficha.getImagen() + "\n");
-//        }
-//
-//        System.out.println("\n\n*****************************");
-//        for (Ficha ficha : tablero.getFichasNegras()) {
-//            System.out.println(ficha.getNombre());
-//            System.out.println(ficha.getColor());
-//            System.out.println(ficha.getTipo());
-//            System.out.println(ficha.getImagen() + "\n");
-//        }
-//        Vista vista = new Vista(tablero);
-        Prueba prueba = new Prueba(FichasBlancas, FichasNegras);
+        Prueba prueba = new Prueba(tablero);
     }
 }
