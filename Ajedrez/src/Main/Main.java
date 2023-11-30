@@ -14,11 +14,12 @@ import ConcreteDecorators.Peon;
 import ConcreteDecorators.Reina;
 import ConcreteDecorators.Rey;
 import ConcreteDecorators.Torre;
+import ConcreteStates.StateBlanco;
 import Creator.FichaCreator;
 import Implementation.Color;
 import Product_Abstraccion.Ficha;
 import Singleton_Context.Tablero;
-import Vista.Prueba;
+import Vista.Vista;
 import java.util.ArrayList;
 
 /**
@@ -111,7 +112,7 @@ public class Main {
             }
         }
 
-        Tablero tablero = Tablero.getTablero(FichasBlancas, FichasNegras);
-        Prueba prueba = new Prueba(tablero);
+        Tablero tablero = Tablero.getTablero(FichasBlancas, FichasNegras, new StateBlanco());
+        Vista prueba = new Vista(tablero);
     }
 }

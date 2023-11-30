@@ -3,11 +3,11 @@ package Vista;
 import ConcreteStates.StateBlanco;
 import ConcreteStates.StateNegro;
 import Singleton_Context.Tablero;
-import State.InterfaceState;
+import State.AbstraccionState;
 import javax.swing.*;
 import java.awt.*;
 
-public class Prueba extends JFrame {
+public class Vista extends JFrame {
 
     private JPanel chessBoard;
     private JPanel[][] squares;
@@ -16,10 +16,10 @@ public class Prueba extends JFrame {
     private int selectedCol = -1;
     private String Ficha_a_mover;
     private Tablero Tablero;
-    private InterfaceState TurnoBlanco = new StateBlanco();
-    private InterfaceState TurnoNegro = new StateNegro();
+    private AbstraccionState TurnoBlanco = new StateBlanco();
+    private AbstraccionState TurnoNegro = new StateNegro();
 
-    public Prueba(Tablero Tablero) {
+    public Vista(Tablero Tablero) {
         this.Tablero = Tablero;
         setTitle("Chess Board");
         setSize(500, 530);
@@ -521,6 +521,7 @@ public class Prueba extends JFrame {
             } else {
                 this.Tablero.CambiarTurno(TurnoBlanco);
             }
+            JOptionPane.showMessageDialog(null, "El turno del jugador " + this.Tablero.getTurno());
         }
     }
 

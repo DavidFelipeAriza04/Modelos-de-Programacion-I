@@ -15,9 +15,9 @@ public class SquareMouseListener extends MouseAdapter {
 
     private int row;
     private int col;
-    private Prueba vista;
+    private Vista vista;
 
-    public SquareMouseListener(int row, int col, Prueba vista) {
+    public SquareMouseListener(int row, int col, Vista vista) {
         this.row = row;
         this.col = col;
         this.vista = vista;

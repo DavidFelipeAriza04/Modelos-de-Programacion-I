@@ -10,7 +10,7 @@ import Singleton_Context.Tablero;
  *
  * @author david
  */
-public abstract class InterfaceState {
+public abstract class AbstraccionState {
     protected Tablero tablero;
     protected String Turno;
 

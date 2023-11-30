@@ -4,13 +4,13 @@
  */
 package ConcreteStates;
 
-import State.InterfaceState;
+import State.AbstraccionState;
 
 /**
  *
  * @author david
  */
-public class StateNegro extends InterfaceState {
+public class StateNegro extends AbstraccionState {
 
     @Override
     public String Turno() {

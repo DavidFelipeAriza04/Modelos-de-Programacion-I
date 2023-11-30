@@ -6,7 +6,7 @@ package Singleton_Context;
 
 import ConcreteStates.StateBlanco;
 import Product_Abstraccion.Ficha;
-import State.InterfaceState;
+import State.AbstraccionState;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Tablero {
 
-    private InterfaceState Turno;
+    private AbstraccionState Turno;
     private static Tablero tablero;
     private ArrayList<Ficha> FichasBlancas;
     private ArrayList<Ficha> FichasNegras;
@@ -28,20 +28,20 @@ public class Tablero {
         return FichasNegras;
     }
 
-    private Tablero(ArrayList FichasBlancas, ArrayList FichasNegras) {
+    private Tablero(ArrayList FichasBlancas, ArrayList FichasNegras, AbstraccionState Turno) {
         this.FichasBlancas = FichasBlancas;
         this.FichasNegras = FichasNegras;
-        this.Turno = new StateBlanco();
+        this.Turno = Turno;
     }
 
-    public static Tablero getTablero(ArrayList FichasBlancas, ArrayList FichasNegras) {
+    public static Tablero getTablero(ArrayList FichasBlancas, ArrayList FichasNegras, AbstraccionState Turno) {
         if (tablero == null) {
-            tablero = new Tablero(FichasBlancas, FichasNegras);
+            tablero = new Tablero(FichasBlancas, FichasNegras, Turno);
         }
         return tablero;
     }
 
-    public void CambiarTurno(InterfaceState Turno) {
+    public void CambiarTurno(AbstraccionState Turno) {
         this.Turno = Turno;
     }
 
